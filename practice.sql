@@ -66,3 +66,48 @@ insert into title values (6,'Lead',TO_DATE('2024-03-20','YYYY-MM-DD'));
 insert into title values (3,'Lead',TO_DATE('2022-05-20','YYYY-MM-DD'));
 
 select * from title;
+
+select first_name,salary from worker;
+
+select 55+11 from dual;			/* dual is by defualt table in sql */
+SELECT SYSDATE FROM dual;
+SELECT USER FROM dual;
+select  LOWER('AARYAN') from dual;
+select UPPER('aaryan sood') from dual;
+-- where clause on the basis of salary and department
+select * from worker where salary > 100000; 
+select * from worker where department='Accountant';
+select * from worker where salary between 80000 AND 300000;
+
+-- reduce OR statement 
+-- print all employees where department is 'HR' and 'Admin'
+select * from worker where department in ('HR','Admin','Accountant');
+-- listing all workers wo are not in HR and admin roles
+select * from worker where department not in ('HR','Admin');
+
+-- pattern matching
+select * from worker where first_name like '%i%';
+select * from worker where first_name like '_i%';
+
+--sorting using order by
+select * from worker order by salary;
+select * from worker ORDER BY salary DESC;
+
+-- usage of distinct keyword
+select distinct department from worker;
+
+-- Group by
+select department from worker group by department;
+select department,COUNT(department) from worker group by department;
+
+-- average salary per department
+select department,AVG(salary) AS avg_salary from worker group by department;
+
+--MIN SALARY PER DEPARTMENT
+select department,MIN(SALARY) from worker group by department;
+
+-- MAx SALARY PER DEPARTMENT
+select department,MAX(SALARY) from worker group by department;
+
+-- total salary as per each department
+select department,TOTAL(salary) from worker group by department;

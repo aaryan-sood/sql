@@ -110,4 +110,4 @@ select department,MIN(SALARY) from worker group by department;
 select department,MAX(SALARY) from worker group by department;
 
 -- total salary as per each department
-select department,TOTAL(salary) from worker group by department;
+select department,SUM(salary) from worker group by department;

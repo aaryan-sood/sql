@@ -48,3 +48,35 @@ select * from account;
 DROP TABLE ACCOUNT;
 
 delete from account;
+
+-- alter table 
+-- ADD a Column 
+ALTER table account add interest_rate INT ;
+
+-- MODIFY TABLE CHANGE DATATYPE AND ADDING COLUMN LEVEL CONSTRINTS LIKE NOT NULL AND DEFAULT 0
+ALTER table account MODIFY interest_rate BINARY_DOUBLE;
+ALTER table account MODIFY interest_rate INT;
+
+-- MODIFYING TABLE TO DEFAULT TO BE ZERO AND NOT NULL
+ALTER table account MODIFY INTEREST_RATE DEFAULT 0 NOT NULL;
+-- REMOVING THE ABOVE STATEMENT
+ALTER table account MODIFY DEFAULT NULL NULL;
+
+
+-- CHANGE THE NAME OF THE COLUMN
+ALTER table account RENAME COLUMN interest_rate TO Saving_account_rate ;
+ALTER table account RENAME COLUMN SAVING_ACCOUNT_RATE TO INTEREST_RATE;
+
+-- DROP COLUMN
+ALTER table account DROP COLUMN interest_rate;
+
+-- CHANGE NAME OF THE TABLE
+ALTER table account RENAME TO ACCOUNT_DETAILS;
+ALTER table account_details RENAME TO account;
+
+-- ADD AND DROP OF PRIMARY KEY
+ALTER table account DROP PRIMARY KEY;
+ALTER table account ADD CONSTRAINT primary_key PRIMARY KEY(ID);
+select * from user_constraints;
+
+-- DML (DATA MODIFICATION LANGUAGE)
